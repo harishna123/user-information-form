@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body onload="data()">
+    <form action="" onsubmit="return getfrom(event)" id="form">
+      <table border="1" cellpadding="10" cellspacing="0" align="center">
+        <tr>
+          <td>Roll No. :</td>
+          <td>
+            <input
+              type="text"
+              id="inputroll"
+              name="inputroll"
+              size="5"
+              placeholder="Roll no."
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Name :</td>
+          <td>
+            <input
+              type="text"
+              id="inputname"
+              name="inputname"
+              placeholder="Enter Name"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>E-Address :</td>
+          <td>
+            <input
+              type="text"
+              id="inputadd"
+              cols="22"
+              rows="4"
+              name="inputadd"
+              placeholder="Enter Email"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Date of Birth :</td>
+          <td>
+            <input type="date" id="inputdate" name="inputdate" />
+          </td>
+        </tr>
+
+        <tr>
+          <td>Gender :</td>
+          <td>
+            <input type="radio" value="Male" id="input" name="input" />Male
+            <input
+              type="radio"
+              value="Female"
+              id="input45"
+              name="input"
+            />Female
+          </td>
+        </tr>
+
+        <tr>
+          <td>Hobby :</td>
+          <td>
+            <input
+              type="checkbox"
+              class="Hobby"
+              value="Cricket"
+              name=""
+            />Cricket<br />
+            <input
+              type="checkbox"
+              class="Hobby"
+              value="Reading"
+              name=""
+            />Reading<br />
+            <input
+              type="checkbox"
+              class="Hobby"
+              value="Travelling"
+              name=""
+            />Travelling<br />
+            <input
+              type="checkbox"
+              class="Hobby"
+              value="Dancing"
+              name=""
+            />Dancing<br />
+            <input
+              type="checkbox"
+              class="Hobby"
+              value="Singing"
+              name=""
+            />Singing
+          </td>
+        </tr>
+
+        <tr>
+          <td>Uername:</td>
+          <td>
+            <input
+              type="text"
+              id="inputuse"
+              name="inputuse"
+              placeholder="Enter Username"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Password:</td>
+          <td>
+            <input
+              type="current-password"
+              id="inputpass"
+              name="inputpass"
+              placeholder="Enterpassword"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2" align="center">
+            <button value="submit" onclick="return submitfrom()">submit</button>
+            <button type="reset" value="reset">reset</button>
+            <!-- <input type="submit"> -->
+          </td>
+        </tr>
+
+        <table border="2px" width="50%" style="margin-top: 50px">
+          <tr>
+            <th>rollno</th>
+            <th>name</th>
+            <th>E-add</th>
+            <th>bdate</th>
+            <th>gender</th>
+            <th>hobby</th>
+            <th>username</th>
+            <th>password</th>
+          </tr>
+          <tbody id="table" class="table"></tbody>
+        </table>
+      </table>
+    </form>
+    <script>
+      function data() {
+        var table = document.getElementById("table");
+        var html = "";
+        for (let i = 0; i < a.length; i++) {
+          html += `<tr>
+              <td>${a[i].rollno}</td>
+              <td>${a[i].name}</td>
+              <td>${a[i].add}</td>
+              <td>${a[i].bdate}</td>
+              <td>${a[i].gender}</td>
+              <td>${a[i].hobby}</td>
+              <td>${a[i].username}</td>
+              <td>${a[i].password}</td>
+              </tr>`;
+        }
+        table.innerHTML = html;
+      }
+      var gender_value = document.getElementsByName("input");
+      var hobby_value = document.getElementsByClassName("Hobby");
+
+      var a = [];
+      function getfrom(event) {
+        event.preventDefault();
+        var gender = 0;
+        var hobby = 0;
+        var inputroll = document.getElementById("inputroll").value;
+        var inputname = document.getElementById("inputname").value;
+        var inputadd = document.getElementById("inputadd").value;
+        var inputdate = document.getElementById("inputdate").value;
+
+        var gendervalue = "";
+        if (
+          gender_value[0].checked == true ||
+          gender_value[1].checked == true
+        ) {
+          // alert("checkbox checked");
+          gender++;
+          gendervalue += gender_value[0 || 1].value;
+        } else {
+          alert("Enter gender details correctly");
+          return false;
+        }
+        console.log(gendervalue, "===========");
+
+        var hobbyValue = "";
+        for (let i = 0; i < hobby_value.length; i++) {
+          if (hobby_value[i].checked == true) {
+            hobby++;
+            // console.log(hobby_value[i].value);
+            hobbyValue += " " + hobby_value[i].value + "<br>";
+          }
+        }
+        console.log(hobbyValue, "==");
+        var inputuse = document.getElementById("inputuse").value;
+        var inputpass = document.getElementById("inputpass").value;
+
+        var obj = {
+          rollno: inputroll,
+          name: inputname,
+          add: inputadd,
+          bdate: inputdate,
+          gender: gendervalue,
+          hobby: hobbyValue,
+          username: inputuse,
+          password: inputpass,
+        };
+        a.push(obj);
+        data();
+        document.getElementById("form").reset();
+        return false;
+      }
+
+      function submitfrom() {
+
+        var inputroll = document.getElementById("inputroll").value;
+        var inputname = document.getElementById("inputname").value;
+        var inputadd = document.getElementById("inputadd").value;
+        var inputdate = document.getElementById("inputdate");
+        var gender_value = document.getElementsByName("input");
+        var hobby_value = document.getElementsByClassName("Hobby");
+        var inputuse = document.getElementById("inputuse").value;
+        var inputpass = document.getElementById("inputpass").value;
+
+        // console.log(inputroll);
+        var numberrex = "^[0-9]+$";
+        if (inputroll.search(numberrex) || inputroll == "") {
+          alert("Enter roll details correctly");
+          return false;
+        }
+
+        var namerex = "^[a-zA-Z]+ [a-zA-Z]+$";
+        if (inputname == "" || inputname.search(namerex)) {
+          alert("Enter name details correctly");
+          return false;
+        }
+
+        var addrex ="^[a-zA-Z]+ [a-zA-Z]+$";
+        if (inputadd == "" || inputadd.search(addrex)) {
+          alert("Enter add details correctly");
+          return false;
+        }
+
+        if (inputdate.value == "") {
+          alert("Enter date details correctly");
+          return false;
+        }
+
+        var usernamerex ="^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,18}[a-zA-Z0-9]$";
+        if (inputuse == "" || inputuse.search(usernamerex)) {
+          alert("Enter user details correctly");
+          return false;
+        }
+
+        var passwordrex ="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{6,10}$";
+        if (inputpass == "" || inputpass.search(passwordrex)) {
+          alert("Enter pass correctly");
+          return false;
+
+        }
+
+      }
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body >
+    <!-- onload="load()" -->
+
+    <!-- <button onclick="demo()">CLick me</button> -->
+    <!-- <p id="demo" onclick="demo()">you dont clik button</p> -->
+
+    <!-- <button ondblclick="hover()">dbl click</button>
+
+    <button onmouseover="mouse()">onmouseover</button>
+
+    <button onmouseout="fun()">javascript</button>
+
+    <button onkeypress="key()">on key press</button>
+
+    <button onkeyup="up()">on key up</button>
+
+    <input type="text" onfocus="foc()">
+
+    <input type="text" onblur="myFunction()" id="txtbox">
+
+    <select id="change" onchange="change()">
+        <option value="Audi">Audi</option>
+        <option value="BMW">BMW</option>
+        <option value="Mercedes">Mercedes</option>
+        <option value="Volvo">Volvo</option>
+    </select>
+
+    <form onsubmit="data()">
+        Enter name: <input type="text">
+        <input type="submit" value="Submit">
+    </form>
+
+    <form onreset="set()">
+        Enter name: <input type="text">
+        <input type="reset" value="Reset">
+    </form> -->
+    <!-- <p id="demo">rendom numbers</p> -->
+
+    <input type="text" id="Input">
+    <button onclick="search()">search</button>
+    
+
+    <table border="2px" width="50%">
+      <tr>
+        <th>name</th>
+        <th>lastname</th>
+        <th>RollNO</th>
+        <th>Address</th>
+      </tr>
+      <tbody id="table" class="table"></tbody>
+    </table>
+
+    <script>
+      // event start
+
+      // function demo() {
+      //     var a = document.getElementById("demo").innerHTML = "you click the button"
+      //     console.log(a);
+      // alert("Hello you clik")
+      // }
+
+      // function hover() {
+      //     alert("ondblclick")
+      // }
+
+      // function mouse() {
+      //     alert("mousehover event")
+      // }
+
+      // function fun() {
+      //     alert("Hello World")
+      // }
+
+      // function key() {
+      //     alert("press the key")
+      // }
+
+      // function up() {
+      //     alert("on key up")
+      // }
+
+      // function foc() {
+      //     alert("on focus")
+      // }
+
+      // function myFunction() {
+      //     document.getElementById("txtbox").style.background = "red";
+      // }
+
+      // function load() {
+      //     alert("load the page")
+      // }
+
+      // function change() {
+      //     document.write("demo")
+      // }
+
+      // function data() {
+      //     document.write("succesfully")
+      // }
+
+      // function set() {
+      //     document.write("reset")
+      // }
+
+      // event end
+
+      // var ads = 1
+      // document.write(ads)
+      // console.log(ads)
+
+      // var b = "hello";
+      // document.write(b)
+
+      // var cars = ["Saab", "Volvo", "BMW"];
+
+      // var demo1 = 10
+      // var demo2 = "10"
+
+      // var demo3 = demo1 + demo2
+
+      // if (demo1 == demo2) {
+      //     document.write("demo is same")
+      // }
+
+      // 2 values
+      // var a = 80
+
+      // var b = 40
+
+      // if (a > b) {
+      //     document.write("a is big")
+      // }
+      // else {
+      //     document.write("b is big")
+      // }
+
+      // 3 values
+
+      // var a = 80
+
+      // var b = 40
+
+      // var c = 10
+
+      // if (a > b) {
+      //     if (a > c) {
+      //         document.write("a is big")
+      //     }
+      //     else {
+      //         document.write("c is big")
+      //     }
+      // }
+      // else {
+      //     if (b > c) {
+      //         document.write("b is big")
+      //     }
+      //     else {
+      //         document.write("c is big")
+      //     }
+      // }
+
+      // 4 values
+
+      // var a = 800
+
+      // var b = 400
+
+      // var c = 140
+
+      // var d = 100
+
+      //    if (a>b) {
+      //         if (a>c) {
+      //             if (a>d) {
+      //                 document.write("a is big")
+      //             }
+      //             else{
+      //                 document.write("d is big")
+      //             }
+      //         }
+      //         else{
+      //             if (c>d) {
+      //                 document.write("c is big")
+      //             }
+      //             else{
+      //                 document.write("d is big")
+      //             }
+      //         }
+      //    }
+      //    else{
+      //         if (b>c) {
+      //             if (b>d) {
+      //                 document.write("b is big")
+      //             }
+      //             else{
+      //                 document.write("d is big")
+      //             }
+      //         }
+      //         else{
+      //             if (c>d) {
+      //                 document.write("c is big")
+      //             }
+      //             else{
+      //                 document.write("d is big")
+      //             }
+      //         }
+      //    }
+
+      // 5 values
+
+      // var a = 800
+
+      // var b = 4000
+
+      // var c = 19
+
+      // var d = 1500000
+
+      // var e = 120000
+
+      // if (a > b) {
+      //     if (a > c) {
+      //         if (a > d) {
+      //             if (a > e) {
+      //                 document.write("a is big")
+      //             }
+      //             else {
+      //                 document.write("e is big")
+      //             }
+      //         }
+      //         else {
+      //             if (d > e) {
+      //                 document.write("d is big")
+      //             }
+      //             else {
+      //                 document.write("e is big")
+      //             }
+      //         }
+      //     }
+      //     else {
+      //         if (c > d) {
+      //             if (c > e) {
+      //                 document.write("c is big")
+      //             }
+      //             else {
+      //                 document.write("e is big")
+      //             }
+      //         }
+      //         else {
+      //             if (d > e) {
+      //                 document.write("d is big")
+      //             }
+      //             else {
+      //                 document.write("e is big")
+      //             }
+      //         }
+      //     }
+      // }
+      // else {
+      //     if (b > c) {
+      //         if (b > d) {
+      //             if (b > e) {
+      //                 document.write("b is big")
+      //             }
+      //             else {
+      //                 document.write("e is big")
+      //             }
+      //         }
+      //         else {
+      //             if (d > e) {
+      //                 document.write("d is big")
+      //             }
+      //             else {
+      //                 document.write("e is big")
+      //             }
+      //         }
+      //     }
+      //     else {
+      //         if (c > d) {
+      //             if (c > e) {
+      //                 document.write("c is big")
+      //             }
+      //             else {
+      //                 document.write("e is big")
+      //             }
+      //         }
+      //         else {
+      //             if (d > e) {
+      //                 document.write("d is big")
+      //             }
+      //             else {
+      //                 document.write("e is big")
+      //             }
+      //         }
+      //     }
+      // }
+
+      // var a = 200
+
+      // var b = 30
+
+      // var c = 40
+
+      // var d = 50
+
+      // if (a > b && a > c && a > d) {
+      //     document.write("a is big")
+      // }
+      // else if (b > c && b > d) {
+      //     document.write("b is big")
+      // }
+      // else if (c > d) {
+      //     document.write("c is big")
+      // }
+      // else {
+      //     document.write("d is big")
+      // }
+
+      // switch case
+
+      // switch ("R") {
+      //     case "R":
+      //         document.write("Your Choice Red" + "<br>")
+      //         break;
+      //     case "G":
+      //         document.write("Your Choice Green" + "<br>")
+      //         break;
+      //     case "B":
+      //         document.write("Your Choice Blue" + "<br>")
+      //         break;
+      //     case "a":
+      //         document.write("Your Choice aqua" + "<br>")
+      //         break;
+      //     default:
+      //         document.write("Your Choice is another")
+      // }
+
+      // reverse
+      // for (var i = 100; i > 0; i--) {
+      //     document.write(i,"<br>")
+      // }
+
+      // for (var i = 100; i > 0; i--) {
+      //     document.write(i--,"<br>")
+      // }
+
+      // 1 to 10 total
+
+      // jo = 0
+      // for (let i = 1; i <= 10; i++) {
+      //     document.write(i, "</br>")
+      //     jo = jo + i
+      // }
+      // document.write("sum=", jo, "</br>")
+
+      //    table of 3
+      //    for (let i = 0; i <= 100; i++) {
+      //     if (i%3===0) {
+      //         document.write(i,"<br>")
+      //     }
+      //    }
+
+      // table of 5
+      //    for (let i = 0; i <= 100; i++) {
+      //     if (i%5===0) {
+      //         document.write("---------------------",i,"<br>")
+      //     }
+      //    }
+
+      // 3 and 5 sem of table
+      // for (i = 0; i <= 100; i++) {
+      //     if (i % 5 === 0) {
+      //         if (i % 3 === 0) {
+      //             document.write("----", i, "<br>")
+      //         }
+      //     }
+      // }
+
+      // var sum = 10
+      // console.log(sum, "---------sum");
+
+      // var i =1;
+      // while (i<=10) {
+      //     document.write(i+"<br>")
+      //         a++
+      // }
+
+      // a = a * 10
+
+      // a *= 10
+
+      // document.write(a + b)
+
+      // if (a===5) {
+      //     document.write("a is 5")
+      // }
+      // else{
+      //     document.write("a value is other then 5")
+
+      // }
+
+      // var a = 1;
+      // while (a <= 100) {
+      //     document.write(a + "<br>")
+      //     a++;
+      // };
+      // do {
+      //     document.write(a+"<br>")
+      // } while (a<100);
+
+      // window.alert("ndsjadsak")
+      // confirm("dfjkf")
+      // prompt("fkdlsf")
+
+      // var a = prompt(" add numbers")
+      // for (i = 1; i <=a; i++ ) {
+      //     document.write(i + "<br>")
+      // }
+
+      // var a = prompt(" add numbers")
+      // var b = prompt("numbers")
+      // for (i = a; i <=b; i++ ) {
+      //     document.write(i + "<br>")
+      // }
+
+      // var a = parseInt(prompt("first value"))
+      // var b = parseInt(prompt("second value"))
+
+      // if (a > b) {
+      //     alert("hdfdsj")
+      //     b = parseInt(prompt("second value"))
+      //     for (let i = a; i < b; i++) {
+      //         document.write(i, "<br>")
+      //     }
+      // }
+      // else {
+      //     console.log(b, "right")
+      //     for (let i = a; i < b; i++) {
+      //         document.write(i, "<br>")
+      //     }
+      // }
+
+      // var c = ["dhsjakd", "dsjakdjsa", "dsajdksa2", "dsahjdsak", "fdsfdshbjds"]
+      // console.log(c);
+      // console.log(c[2],"================");
+
+      // for (let i = 0; i < c.length; i++) {
+      // console.log(c.length);
+      // }
+      // console.log(c[1]);
+
+      // big()
+      // var d = "fjdsf"
+      // document.write(d.big())
+
+      // small()
+      // var e = "hceyr"
+      // document.write(e.small())
+
+      // bold()
+      // var f = "cdskswd"
+      // document.write(f.bold())
+
+      // italics()
+      // var g = "gfrkg"
+      // document.write(g.italics())
+
+      // strike()
+      // var h ="hfoireyg"
+      // document.write(h.strike())
+
+      // fontcolor()
+      // var i = "hjfglf"
+      // document.write(i.fontcolor('red'))
+
+      // fontsize()
+      // var i = "hjfglf"
+      // document.write(i.fontsize(6))
+
+      // link()
+      // var i = "hjfglf"
+      // document.write(i.link("img.png"))
+
+      // length()
+      // var i = "hjfglf"
+      // document.write(i.length)
+
+      // charAt()
+      // var i = "hjfglf"
+      // document.write(i.charAt(0))
+
+      // concat()
+      // var i = "hjfglf"
+      // document.write(i.concat(",always"))
+
+      // indexOf()
+      // var name = "Be Codeline";
+      // document.write(name.indexOf("C"));
+
+      // lastIndexOf()
+      // var name = "Be CodelineB";
+      // document.write(name.lastIndexOf("C"));
+
+      // match()
+      // var i = "good"
+      // document.write(i.match("gfhdskj"))
+
+      // replace()
+      // var i="good"
+      // document.write(i.replace("good","always"))
+
+      // search()
+      // var name = "Be Codeline";
+      // var mystr =
+      //     (name.search("Codline")); if (mystr >=
+      //         0) {
+      //     document.write("Text Found");
+      // } else {
+      //     document.write("Text Not Found");
+
+      // }
+
+      // slice()
+      // var name = "Be Codeline";
+      // document.write(name.slice(0, 1));
+      // document.write("<br>" + name.slice(2, 8));
+
+      // substr()
+      // var name = "Be Codeline";
+      // var mystr = (name.substr(1, 6));
+      // document.write(mystr);
+
+      // substring()
+      // var name = "Be Codeline";
+      // var mystr = (name.substring(3, 7));
+      // document.write(mystr);
+
+      // toLowerCase()
+      // var name = "Be Codeline";
+      // document.write(name.toLowerCase());
+
+      // toUpperCase()
+      // var name = "Be Codeline";
+      // document.write(name.toUpperCase());
+
+      // .......Math Function.......//
+
+      // abs()
+      // for (var a = -1; a <= 3; a++) {
+      //     document.write("<br>");
+      //     document.write(Math.abs(a));
+      // }
+
+      // ceil()
+      // document.write(Math.ceil(2.5));
+
+      // floor()
+      // document.write(Math.floor(3.5));
+
+      // pow()
+      // document.write(Math.pow(3,2));
+
+      // random()
+      // document.write(Math.random());
+
+      // max()
+      // document.write(Math.max(25,50,300,5,20));
+
+      // min()
+      // document.write(Math.min(25,50,30,5,20));
+
+      // round()
+      // document.write(Math.round(25.579521));
+
+      // .....Date Function.....//
+
+      // date()
+      // document.write(Date());
+
+      // getDay()
+      // var cdate = new Date();
+      // document.write("Day:" + cdate.getDay());
+
+      // getMonth()
+      // var cdate = new Date();
+      // document.write("Month:" + cdate.getMonth());
+
+      // getFullYear()
+      // var cdate = new Date();
+      // document.write("Year : " + cdate.getFullYear());
+
+      // getHours()
+      // var cdate = new Date();
+      // document.write("Hours: " + cdate.getHours());
+
+      // getMinutes()
+      // var cdate = new Date();
+      // document.write("Minutes : " + cdate.getMinutes());
+
+      // getSeconds()
+      // var cdate = new Date();
+      // document.write("Seconds : " + cdate.getSeconds());
+
+      // getMilliseconds()
+      // var cdate = new Date();
+      // document.write("Milli Seconds : " + cdate.getMilliseconds());
+
+      // getTime()
+      // var cdate = new Date();
+      // document.write("Milliseconds : " + cdate.getTime());
+
+      // setDate()
+      // var cdate = new Date();
+      // cdate.setDate(6)
+      // document.write("Set Date:" + cdate);
+
+      // setMonth()
+      // var cdate = new Date();
+      // cdate.setMonth(5);
+      // document.write("Set Month:" + cdate);
+
+      // setFullYear()
+      // var cdate = new Date();
+      // cdate.setFullYear(2025);
+      // document.write("Set Year : " + cdate);
+
+      // setHours()
+      // var cdate = new Date();
+      // cdate.setHours(20);
+      // document.write("Set Hours : " + cdate);
+
+      // setMinutes()
+      // var cdate = new Date();
+      // cdate.setMinutes(35);
+      // document.write("Set Minutes : " + cdate);
+
+      // setSeconds()
+      // var cdate = new Date();
+      // cdate.setMinutes(40);
+      // document.write("Set Seconds : " + cdate);
+
+      // .................array function.........................
+      // concat()
+      // var fruit = new Array(1, 2, 3);
+      // var vege = new Array(1, 2, 3);
+      // var vege = vege.concat(fruit)
+      // document.write(vege)
+
+      // join()
+      // var fruit = new Array("Banana", "Apple", "Mango");
+      // document.write("<br>Fruits : ", fruit.join("*-*"));
+
+      // pop()
+      // var fruit = new Array("Banana", "Apple", "Mango");
+      // fruit.pop();
+      // document.write("<br>Fruits : ", fruit);
+
+      // push()
+      // var fruit = new Array("Banana", "Apple", "Mango");
+      // fruit.push("Orange");
+      // document.write("<br>Fruits : ", fruit);
+
+      // reverse()
+      // var fruit = new Array("Banana", "Apple", "Mango");
+      // var revarray = fruit.reverse();
+      // document.write("<br>Fruits : ", revarray);
+
+      // shift()
+      // var fruit = new Array("Banana", "Apple", "Mango");
+      // fruit.shift();
+      // document.write("<br>Fruits : ", fruit);
+
+      // sort()
+      // var data = new Array("7", "4", "2", "1", "5");
+      // document.write("<br>Number : ", data.sort());
+
+      // length()
+      // var data = new Array("7", "4", "2", "1", "5");
+      // var elements = data.length;
+      // document.write("Number of element :", elements)
+
+      // ......................print sun-sat.........................
+
+      // var cday = new Date().getDay();
+      // switch (cday) {
+      //     case 0:
+      //         document.write("sun" + "<br>")
+      //         break;
+      //     case 1:
+      //         document.write("mon" + "<br>")
+      //         break;
+      //     case 2:
+      //         document.write("tues" +"<br>")
+      //         break;
+      //     case 3:
+      //         document.write("wed" + "<br>")
+      //         break;
+      //     case 4:
+      //         document.write("thu" + "<br>")
+      //         break;
+      //     case 5:
+      //         document.write("fri" + "<br>")
+      //         break;
+      //     case 6:
+      //         document.write("sat" + "<br>")
+      //         break;
+      //     default:
+      //         document.write("Your Choice is another")
+      // }
+
+      //  ..................random numbers in 4 digites...............
+
+      // document.getElementById("demo").innerHTML =
+      //     Math.floor(Math.random() * 3654);
+
+      // var a = Math.floor(1000 + Math.random() * 9000);
+      // document.write(a)
+
+      var a = [
+        {
+          name: "sftrvh",
+          lastname: "fkdl",
+          rollno: 1,
+          add: "fhdskhfdskjfdskfdskj",
+        },
+        {
+          name: "jcdksnc",
+          lastname: "fkdl",
+          rollno: 2,
+          add: "fhdskhfdskjfdskfdskj",
+        },
+        {
+          name: "nvbd",
+          lastname: "fkdl",
+          rollno: 3,
+          add: "fhdskhfdskjfdskfdskj",
+        },
+        {
+          name: "lriygk",
+          lastname: "fkdl",
+          rollno: 4,
+          add: "fhdskhfdskjfdskfdskj",
+        },
+        {
+          name: "rfgh",
+          lastname: "fkdl",
+          rollno: 5,
+          add: "fhdskhfdskjfdskfdskj",
+        },
+        {
+          name: "jolui",
+          lastname: "fkdl",
+          rollno: 6,
+          add: "fhdskhfdskjfdskfdskj",
+        },
+      ];
+
+      var table = document.getElementById("table");
+      var html = "";
+      // function Hellol() {
+        for (let i = 0; i < a.length; i++) {
+          html += `<tr>
+          <td>${a[i].name}</td>
+          <td>${a[i].lastname}</td>
+          <td>${a[i].rollno}</td>
+          <td>${a[i].add}</td>  
+          </tr>`;
+        }
+        table.innerHTML = html;
+      // }
+
+      
+      function search() {
+        var input = document.getElementById("Input").value;
+        for (let i = 0; i < a.length; i++) {
+          if (a[i].name.includes(input)) {
+            html = `<tr>
+            <td>${a[i].name}</td>
+            <td>${a[i].lastname}</td>
+            <td>${a[i].rollno}</td>
+            <td>${a[i].add}</td>  
+            </tr>`;
+          } else {
+            html = "";
+          }
+        }
+        // table.innerHTML = html;
+        console.log(html);
+      }
+    </script>
+  </body>
+</html>

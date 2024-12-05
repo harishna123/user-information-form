@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Management</title>
+    <style>
+        /* Add some basic styling */
+        button {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <input type="text" id="input1" placeholder="Name">
+    <input type="text" id="input2" placeholder="Lastname">
+    <input type="text" id="input3" placeholder="Current Address">
+    <input type="text" id="input4" placeholder="City">
+    <input type="email" id="input5" placeholder="Email Address">
+    <input type="text" id="input6" placeholder="Experience">
+    <input type="number" id="input7" placeholder="ID" readonly>
+
+    <button id="addButton" onclick="add()">Add</button>
+    <button id="updateButton" onclick="update()" style="display:none;">Update</button>
+
+    <table border="2px" width="50%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Current Address</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>Experience</th>
+                <th>ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="table">
+            <!-- Rows will be added dynamically here -->
+        </tbody>
+    </table>
+
+    <script>
+        let applications = [];
+        let selectedIndex = -1;
+
+        // Fetch data from API and populate the table using fetch()
+        function getData() {
+            fetch("https://66b9f32cfa763ff550fa3e64.mockapi.io/jobapplication")
+                .then(response => response.json())
+                .then(data => {
+                    applications = data;
+                    renderTable();
+                })
+                .catch(error => console.error("Failed to fetch data:", error));
+        }
+
+        // Render the job application data into the table
+        function renderTable() {
+            const table = document.getElementById("table");
+            table.innerHTML = ""; // Clear the table
+
+            applications.forEach((application, index) => {
+                const row = `
+                    <tr>
+                        <td>${application.name}</td>
+                        <td>${application.lastname}</td>
+                        <td>${application.currentaddress}</td>
+                        <td>${application.city}</td>
+                        <td>${application.emailaddress}</td>
+                        <td>${application.experience}</td>
+                        <td>${application.id}</td>
+                        <td>
+                            <button onclick="editApplication(${index})">Edit</button>
+                            <button onclick="deleteApplication(${index})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+                table.innerHTML += row;
+            });
+        }
+
+        // Add a new job application to the table
+        function add() {
+            const name = document.getElementById("input1").value;
+            const lastname = document.getElementById("input2").value;
+            const currentaddress = document.getElementById("input3").value;
+            const city = document.getElementById("input4").value;
+            const emailaddress = document.getElementById("input5").value;
+            const experience = document.getElementById("input6").value;
+            const id = applications.length + 1;
+
+            const newApplication = { name, lastname, currentaddress, city, emailaddress, experience, id };
+
+            fetch("https://66b9f32cfa763ff550fa3e64.mockapi.io/jobapplication", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newApplication)
+            })
+            .then(response => response.json())
+            .then(data => {
+                applications.push(data);
+                renderTable();
+                clearInputs();
+            })
+            .catch(error => console.error("Failed to add application:", error));
+        }
+
+        // Update an existing job application's details
+        function update() {
+            if (selectedIndex >= 0) {
+                const name = document.getElementById("input1").value;
+                const lastname = document.getElementById("input2").value;
+                const currentaddress = document.getElementById("input3").value;
+                const city = document.getElementById("input4").value;
+                const emailaddress = document.getElementById("input5").value;
+                const experience = document.getElementById("input6").value;
+                const id = document.getElementById("input7").value;
+
+                const updatedApplication = { name, lastname, currentaddress, city, emailaddress, experience };
+
+                fetch(`https://66b9f32cfa763ff550fa3e64.mockapi.io/jobapplication/${id}`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(updatedApplication)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    applications[selectedIndex] = data;
+                    renderTable();
+                    clearInputs();
+                    document.getElementById("addButton").style.display = "block";
+                    document.getElementById("updateButton").style.display = "none";
+                })
+                .catch(error => console.error("Failed to update application:", error));
+            }
+        }
+
+        // Edit a job application's details
+        function editApplication(index) {
+            selectedIndex = index;
+            const application = applications[index];
+
+            document.getElementById("input1").value = application.name;
+            document.getElementById("input2").value = application.lastname;
+            document.getElementById("input3").value = application.currentaddress;
+            document.getElementById("input4").value = application.city;
+            document.getElementById("input5").value = application.emailaddress;
+            document.getElementById("input6").value = application.experience;
+            document.getElementById("input7").value = application.id;
+
+            document.getElementById("addButton").style.display = "none";
+            document.getElementById("updateButton").style.display = "block";
+        }
+
+        // Delete a job application from the table
+        function deleteApplication(index) {
+            const applicationId = applications[index].id;
+
+            fetch(`https://66b9f32cfa763ff550fa3e64.mockapi.io/jobapplication/${applicationId}`, {
+                method: "DELETE"
+            })
+            .then(() => {
+                applications.splice(index, 1);
+                renderTable();
+                clearInputs();
+            })
+            .catch(error => console.error("Failed to delete application:", error));
+        }
+
+        // Clear input fields
+        function clearInputs() {
+            document.getElementById("input1").value = "";
+            document.getElementById("input2").value = "";
+            document.getElementById("input3").value = "";
+            document.getElementById("input4").value = "";
+            document.getElementById("input5").value = "";
+            document.getElementById("input6").value = "";
+            document.getElementById("input7").value = "";
+            selectedIndex = -1;
+
+            document.getElementById("addButton").style.display = "block";
+            document.getElementById("updateButton").style.display = "none";
+        }
+
+        // Initial data fetch and table render
+        document.addEventListener("DOMContentLoaded", getData);
+    </script>
+
+</body>
+</html>

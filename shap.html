@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div
+      style="height: 100px; width: 100px; background-color: red" id="div"></div>
+
+    <button onclick="Round()">Round</button>
+    <button onclick="rectangle ()">rectangle</button>
+    <button onclick="oval ()">oval</button>
+    <button onclick="triangle()">triangle</button>
+    <button onclick="parallelogram ()">parallelogram </button>
+    <button onclick="trapezoid()">trapezoid </button>
+    <button onclick="egg()">egg  </button>
+    <button onclick="moon ()">moon   </button> 
+    <button onclick="pacman()">pacman </button>   
+
+
+    <script>
+         function Round() {
+        var round = (document.getElementById("div").style.borderRadius = "50%");
+      }
+      function rectangle() {
+       document.getElementById("div").style.borderRadius = "0%";
+
+        var rectangle = (document.getElementById("div").style.width = "200px");
+      }
+      function oval() {
+        document.getElementById("div").style.borderRadius = "0%";
+        var oval = (document.getElementById("div").style.width = "200px" );
+        var oval = (document.getElementById("div").style.height = "100px");
+        var oval = (document.getElementById("div").style.borderRadius = "50px");
+      }
+      function triangle() {
+       document.getElementById("div").style.borderRadius = "0%";
+        var triangle = (document.getElementById("div").style.width = "0px");
+        var triangle = (document.getElementById("div").style.height = "0px");
+        var triangle = (document.getElementById("div").style.ordertop = "100px solid red");
+        var triangle = (document.getElementById("div").style.borderLeft= "100px solid transparent");
+      }
+      function parallelogram () {
+        document.getElementById("div").style.borderRadius = "0%";
+
+        var parallelogram = (document.getElementById("div").style.width = "150px" );
+        var parallelogram = (document.getElementById("div").style.height = "100px");
+        var parallelogram = (document.getElementById("div").style.transform= "skew(20deg)");
+      }
+      function trapezoid() {
+        document.getElementById("div").style.borderRadius = "0%";
+
+        var trapezoid = (document.getElementById("div").style.width = "100px");
+        var trapezoid = (document.getElementById("div").style.height = "0px");
+        var trapezoid = (document.getElementById("div").style.borderright=  "25px solid transparent");
+        var trapezoid = (document.getElementById("div").style.borderleft= "25px solid transparent");
+        var trapezoid = (document.getElementById("div").style.borderbottum= "100px solid red");
+      }
+      function egg() {
+        document.getElementById("div").style.borderRadius = "0%";
+
+        var egg = (document.getElementById("div").style.width = "126px" );
+        var egg = (document.getElementById("div").style.height = "180px");
+        var egg = (document.getElementById("div").style.borderRadius = " 50% 50% 50% 50% / 60% 60% 40% 40%");
+      }
+      function moon() {
+        document.getElementById("div").style.borderRadius = "0%";
+        var moon = (document.getElementById("div").style.width = "80px");
+        var moon = (document.getElementById("div").style.height = "80px");
+        var moon = (document.getElementById("div").style.borderRadius = "50%");
+        var moon = (document.getElementById("div").style.boxshadow= "15px 15px 0px 0px red");
+        document.getElementById("div").style.backgroundColor="none";
+      }
+      function pacman() {
+        document.getElementById("div").style.borderRadius = "0%";
+        var pacman = (document.getElementById("div").style.width = "0px");
+        var pacman = (document.getElementById("div").style.height = "0px");
+        var pacman = (document.getElementById("div").style.borderright=  "60px solid transparent");
+        var pacman = (document.getElementById("div").style.bordertop=  "60px solid red");
+        var pacman = (document.getElementById("div").style.borderleft= "60px solid red");
+        var pacman = (document.getElementById("div").style.bordertopleftradius = "60px;");
+        var pacman = (document.getElementById("div").style.bordertoprightradius = "60px;");
+        var pacman = (document.getElementById("div").style.borderbottomleftradius =" 60px;");
+        var pacman = (document.getElementById("div").style.borderbottomrightradius =" 60px;");
+      }
+      
+    </script>
+</body>
+</html>

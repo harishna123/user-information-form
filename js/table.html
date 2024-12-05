@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onload="data()">
+    <input type="text" id="Input" />
+    <button onclick="search()">search</button>
+
+    <input type="text" id="insrt" placeholder="name" />
+    <input type="text" id="lastname" placeholder="lastname" />
+    <input type="text" id="RollNo" placeholder="roll no" />
+    <input type="text" id="Add" placeholder="address" />
+    <button onclick="push()">add</button>
+
+    <table border="2px" width="50%">
+      <tr>
+        <th>name</th>
+        <th>lastname</th>
+        <th>RollNO</th>
+        <th>Address</th>
+      </tr>
+      <tbody id="table" class="table"></tbody>
+    </table>
+
+    <!-- <button>Prives</button> -->
+
+    <!-- <img
+      src="https://th.bing.com/th/id/R.7383028831604862ec47fefee3e8f43f?rik=JvqjDCfPocchLg&riu=http%3a%2f%2fthewowstyle.com%2fwp-content%2fuploads%2f2015%2f01%2fimages-of-nature-4.jpg&ehk=%2b1REJDS0cEPD0z2IP%2fddCyP9IgFz6xVpp8fyQr78SJ0%3d&risl=&pid=ImgRaw&r=0"
+      alt=""
+      srcset=""
+      id="images"
+    /> -->
+
+    <!-- <button>Next</button> -->
+
+    <script>
+      var a = [
+        {
+          name: "harishna",
+          lastname: "sudani",
+          rollno: 1,
+          add: "prmukhchaya society",
+        },
+        {
+          name: "ishita",
+          lastname: "savaliya",
+          rollno: 2,
+          add: "prmukhchaya society",
+        },
+        {
+          name: "aarsi",
+          lastname: "savani",
+          rollno: 3,
+          add: "ramdev rowhouse",
+        },
+        {
+          name: "jumisha",
+          lastname: "pansuriya",
+          rollno: 4,
+          add: "prmukhchaya society",
+        },
+        {
+          name: "kruti",
+          lastname: "poshiya",
+          rollno: 5,
+          add: "bapasitaram chowk",
+        },
+        {
+          name: "rajvi",
+          lastname: "rudani",
+          rollno: 6,
+          add: "pasodara",
+        },
+      ];
+
+      function data() {
+        var table = document.getElementById("table");
+        var html = "";
+        for (let i = 0; i < a.length; i++) {
+          html += `<tr>
+            <td>${a[i].name}</td>
+            <td>${a[i].lastname}</td>
+            <td>${a[i].rollno}</td>
+            <td>${a[i].add}</td>
+            </tr>`;
+        }
+        table.innerHTML = html;
+      }
+
+      function search() {
+        var html2 = "";
+        var input = document.getElementById("Input").value;
+        for (let i = 0; i < a.length; i++) {
+          if (a[i].name.includes(input)) {
+            html2 = `<tr>
+            <td>${a[i].name}</td>
+            <td>${a[i].lastname}</td>
+            <td>${a[i].rollno}</td>
+            <td>${a[i].add}</td>
+            </tr>`;
+          }
+        }
+        table.innerHTML = html2;
+      
+      }
+      function reset() {
+        document.getElementById("insrt").value = "";
+        document.getElementById("lastname").value = "";
+        document.getElementById("RollNo").value = "";
+        document.getElementById("Add").value = "";
+      }
+
+      function push() {
+        var html3 = "";
+        var firstname = document.getElementById("insrt").value;
+        var lastname = document.getElementById("lastname").value;
+        var RollNo = document.getElementById("RollNo").value;
+        var Add = document.getElementById("Add").value;
+        var obj = {
+          name: firstname,
+          lastname: lastname,
+          rollno: RollNo,
+          add: Add,
+        };
+        a.push(obj);
+        data();
+        reset();
+      }
+    </script>
+
+    <!-- <script>
+      var a = [
+        "https://th.bing.com/th/id/R.7383028831604862ec47fefee3e8f43f?rik=JvqjDCfPocchLg&riu=http%3a%2f%2fthewowstyle.com%2fwp-content%2fuploads%2f2015%2f01%2fimages-of-nature-4.jpg&ehk=%2b1REJDS0cEPD0z2IP%2fddCyP9IgFz6xVpp8fyQr78SJ0%3d&risl=&pid=ImgRaw&r=0",
+        "https://th.bing.com/th/id/R.71fc55a0f2becd702cc4a893980dea57?rik=XOUhz40Jc9OcYg&riu=http%3a%2f%2fthewowstyle.com%2fwp-content%2fuploads%2f2015%2f01%2fnature-images-6.jpg&ehk=BQoi8QCZQtCfHkXWT0TIAxv1vTtTO1rY7ctKskX6Xfs%3d&risl=&pid=ImgRaw&r=0",
+      ];
+
+
+      function Image() {
+        var images = document.getElementById("images");
+        images.src=a[0]
+      }
+      // console.log(images);
+
+    </script> -->
+  </body>
+</html>
